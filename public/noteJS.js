@@ -74,6 +74,8 @@ function deleteNote(){
     $(this).parent('.note').hide("puff",{ percent: 133}, 250);
 };
 
+
+
 function newNote() {
   $(noteTemp).hide().appendTo("#board").show("fade", 300).draggable().on('dragstart',
     function(){
@@ -87,6 +89,44 @@ function newNote() {
 	return false; 
 };
 
+function newNoteH1() {
+    $(noteTemp).hide().appendTo("#board").show("fade", 300).draggable().on('dragstart',
+      function(){
+         $(this).zIndex(++noteZindex);
+      });
+   
+      $('.remove').click(deleteNote);
+      $('textarea').autogrow();
+      
+    $('.note')
+      return false; 
+  };
+
+  function newNoteH2() {
+    $(noteTemp).hide().appendTo("#board").show("fade", 300).draggable().on('dragstart',
+      function(){
+         $(this).zIndex(++noteZindex);
+      }).css({"background-color": "#08BBD5"});
+   
+      $('.remove').click(deleteNote);
+      $('textarea').autogrow();
+      
+    $('.note')
+      return false; 
+  };
+
+  function newNoteH3() {
+    $(noteTemp).hide().appendTo("#board").show("fade", 300).draggable().on('dragstart',
+      function(){
+         $(this).zIndex(++noteZindex);
+      }).css({"background-color": "#9ECA41"});
+   
+      $('.remove').click(deleteNote);
+      $('textarea').autogrow();
+      
+    $('.note')
+      return false; 
+  };
 
 
 $(document).ready(function() {
@@ -94,9 +134,12 @@ $(document).ready(function() {
     $("#board").height($(document).height());
     
     $("#add_new").click(newNote);
-    
+    $("#add_H1").click(newNoteH1).css({"background-color": "#EF1207"});
+    $("#add_H2").click(newNoteH2).css({"background-color": "#08BBD5"});
+    $("#add_H3").click(newNoteH3).css({"background-color": "#9ECA41"});
+
     $('.remove').click(deleteNote);
-    newNote();
+    // newNote();
 	  
     return false;
 });
